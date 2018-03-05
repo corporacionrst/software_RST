@@ -1,0 +1,37 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <div id="message"> 
+                </div>
+                <a href="/proforma/asignar">facturar proformas</a><div class ="pull-right"><a href="/facturar">facturacion</a></div>
+            </div>
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            <div class="col-lg-12">
+                                <input type="text" placeholder="nombre del cliente" class="form-control" id="cliente"></br>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" placeholder="telefono" class="form-control" id="telefono"></br>
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" placeholder="correo" class="form-control" id="correo"></br>
+                                
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <button class="btn-primary btn-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" onclick="registrar_venta()">{{accion}}</button></div>
+                            <div class="col-lg-12">lista</div>
+                            {% include 'productos/inventario/carga_inventario.html'%}
+                        </div>
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>

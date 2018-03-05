@@ -1,0 +1,101 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}set{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/bodega.html' %}
+{%endblock%}
+{%block encabezado%}Compra en "{{tienda}}"
+{%endblock%}
+{% block contenido %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <div id="message"> 
+                </div>
+                <a href="/productos/crear/">crear producto</a><div class ="pull-right"><a href="/productos/inventario">inventario</a></div>
+            </div>
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                	<div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            {%csrf_token%}
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                documento no:
+                                <input type="text" id="documento" placeholder="por favor ingrese el numero de documento" class="form-control col-xl-12 col-lg-12 col-md-12">
+                                
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                fecha:
+                                <input type="date" id="fecha" class="form-control" placeholder="año-mes-dia">
+                                
+                            </div>
+                    		<div class="col-lg-4">
+                    			nit:{{form.nit}}
+                    		</div>
+                    		<div class="col-lg-7">
+                    			nombre:{{form.nombre}}
+                    		</div>
+                    		<div class="col-lg-1">
+                    			credito:{{form.credito}}
+                    		</div>
+        <input type="text" value="{{store}}" id="tienda" hidden>
+                            <div class="col-lg-12">
+                                <div id="tabla_pr"></div>
+                            </div>
+                            <div id="table_proveedor"></div>
+                    		<div class="col-lg-12">
+                    			direccion:{{form.direccion}}
+                    		</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">.
+                            <button class="btn-primary btn-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" onclick="registrar_compra()">{{accion}}</button></div>
+                    		<div class="col-lg-12">lista</div>
+                            {% include 'productos/inventario/carga_inventario.html'%}
+                        </div>
+
+                <input type="text" value="{{lista}}" id="info" disabled hidden >
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+{% include 'cliente_proveedor/modal.html' %}
+
+
+{%endblock%}
+
+{% block script %}
+
+
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+    <script src="{%static 'propias/inventario/check_provider.js' %}"></script>
+
+   <script src="{%static 'propias/cliente_proveedor/proveedor.js' %}"></script>
+
+
+
+<script src="{% static 'propias/inventario/cargar_lista.js'%}">
+</script>
+
+
+<script src="{% static 'propias/inventario/data_compra.js'%}">
+</script>
+    
+{% endblock %}

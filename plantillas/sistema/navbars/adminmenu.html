@@ -1,0 +1,50 @@
+{%if request.user.is_superuser%}
+<li><a href="/caja"><i class="fa fa-credit-card fa-fw"></i>caja</a></li>
+<li><a href="/bodega"><i class="fa fa-cloud-download fa-fw"></i>bodega</a></li>
+<li><a href="/conta"><i class="fa fa-check-square-o fa-fw"></i>contabilidad</a></li>
+
+<li><a href="/tienda"><i class="fa fa-shopping-cart fa-fw"></i>tienda</a></li>
+{%endif%}
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-caret-square-o-down fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-alerts" id="ddl_productos">        
+    </ul>
+</li>
+
+<!-- /.dropdown -->
+<li class="dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i  class="fa fa-tasks fa-fw" id="proceso"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-tasks" id="ddl_proceso">
+        
+    </ul>
+    <!-- /.dropdown-tasks -->
+</li>
+<!-- /.dropdown -->
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-bell fa-fw" id="alertas"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-alerts" id="ddl_alertas">
+        
+    </ul>
+    <!-- /.dropdown-alerts -->
+</li>
+<!-- /.dropdown -->
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-user">
+        <li><a href="/login"><i class="fa fa-user fa-fw"></i> Perfil</a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="/fin_S"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+        </li>
+    </ul>
+    <!-- /.dropdown-user -->
+</li>
+        <!-- /.dropdown -->

@@ -1,0 +1,110 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+	<div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">{{user.username}}</a>
+    </div>
+            <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-right">
+
+        {%include 'sistema/navbars/adminmenu.html'%}
+    
+        <!-- /.dropdown -->
+    </ul>
+            <!-- /.navbar-top-links -->
+
+ 
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                    <!-- /input-group -->
+                </li>
+                <!-- PENDIENTE!!!! -->
+
+                <li><i class="fa fa-cloud-download fa-fw"></i>bodega</li>
+
+                <li>
+                    <a href="#"><i class="fa fa-plus fa-fw"></i>Crear<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{% url 'producto:marca:crear'%}"><i class="fa fa-copyright fa-fw"></i>Marca</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'producto:crear'%}"><i class="fa fa-cog fa-fw"></i>Producto</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'producto:set'%}"><i class="fa fa-cubes fa-fw"></i>set</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'producto:compras:ver'%}"><i class="fa fa-book" aria-hidden="true"></i>
+                        Compras</a>
+                </li>
+
+                <li>
+                    <div id="traslados_pendientes_de_autorizar"></div>
+                    <a href="#"><i class="fa fa-reply-all fa-fw"></i>Traslados<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{%url 'bodega:traslados:generar'%}"><i class="fa fa-sort-amount-asc fa-fw"></i>Generar</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'bodega:traslados:autorizar'%}"><i class="fa fa-star fa-fw"></i>Autorizar</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-recycle fa-fw"></i>Recuperar</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-road fa-fw"></i>Listar</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    	Envios en cola</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>
+                        desarmar set</a>
+                </li>
+                <li>
+                    <a href="/bodega/faltantes"><i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                        faltantes</a>
+                </li>
+                <li>
+                    <a href="#" onclick="cola()"><i class="fa fa-share" aria-hidden="true"></i>
+                        {{cantidad}} productos en cola</a>
+                </li>
+                
+                {% include 'sistema/navbars/ventas_bar.html'%}
+                
+
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</nav>
+<script>
+function cola () {
+    var brchwin = window.open("cola", 'branch', 'width=1000,height=800,status=no,resizable=yes,scrollbars=yes');
+    }
+</script>

@@ -1,0 +1,22 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}Facturar{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/conta.html' %}
+{%endblock%}
+{%block encabezado%}Facturar en "{{tienda}}"
+{%endblock%}
+{% block contenido %}
+
+{% include 'facturacion/facturas/lista.html'%}
+
+
+{% include 'cliente_proveedor/modal.html' %}
+
+
+{%endblock%}
+
+{% block script %}
+{% include 'facturacion/facturas/script.html'%}
+    
+{% endblock %}

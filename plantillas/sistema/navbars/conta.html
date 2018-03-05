@@ -1,0 +1,75 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+	<div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigatidon</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">{{user.username}}</a>
+    </div>
+            <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-right">
+
+        {%include 'sistema/navbars/adminmenu.html'%}
+    </ul>
+            <!-- /.navbar-top-links -->
+
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                    <!-- /input-group -->
+                </li>
+
+
+
+                <!-- PENDIENTE!!!! -->
+                <li>
+                    <i class="fa fa-check-square-o fa-fw"></i>contabilidad 
+                </li>
+                <li>
+                    <a href="/conta/bancos"><i class="fa fa-university" aria-hidden="true"></i></i>
+                    	Bancos</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-files-o fa-fw"></i>Notas<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="flot.html"><i class="fa fa-globe fa-fw"></i>Credito</a>
+                        </li>
+                        <li>
+                            <a href="morris.html"><i class="fa fa-money fa-fw"></i>Debito</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a href="/conta/reportes"><i class="fa fa-book fa-fw"></i>
+                    	Reportes</a>
+                </li>
+                <li>
+                    <a href="/conta/documentos"><i class="fa fa-bookmark" aria-hidden="true"></i>
+                        Documentos</a>
+                </li>
+                <!-- FIN PENDIENTE!!! --> 
+                
+                {% include 'sistema/navbars/ventas_bar.html'%}
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</nav>

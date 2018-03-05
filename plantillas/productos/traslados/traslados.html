@@ -1,0 +1,75 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}marca{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/bodega.html' %}
+{%endblock%}
+{%block encabezado%}Traslados en "{{tienda}}"" 
+{%endblock%}
+{% block contenido %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="recuperar">recuperar un traslado</a>
+                <div class ="pull-right"><a href="generar">hacer un traslados</a></div>
+            </div>
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+
+                        <form method='POST' action='' enctype='multipart/form-data' id='taskform'>
+                            {%csrf_token%}nombre:{{form.nombre}}
+                        </br>  
+                        </br> 
+                        {%if request.user.is_staff%}   
+                        importacion:
+                        {{form.importacion}}</br>   </br> 
+                        {%endif%}  
+                        <input type="submit" value="Guardar" class="btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-lg">
+                        </form>
+                    
+                </div>
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+
+
+{%endblock%}
+
+{% block script %}
+
+
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+
+
+
+<script src="{% static 'propias/productos/marcas/marca.js'%}">
+</script>
+
+
+    <!-- websockets -->
+     
+
+    
+{% endblock %}

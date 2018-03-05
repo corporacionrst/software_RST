@@ -1,0 +1,82 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}asignar{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+        {% include 'sistema/navbars/admin.html' %} 
+{%endblock%}
+{%block encabezado%}Asignar cuenta en {{tienda}}
+{%endblock%}
+{% block contenido %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                banco<div class ="pull-right">{% for message in messages %}
+                    <li{%if not message.tags%} class="{{message.tags}}"{%endif%}><h2>{{message}}</h2></li>
+                {% endfor %}</div>
+            </div>
+               
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+
+                        <form method='POST' action='' enctype='multipart/form-data' id='taskform'>
+                            {%csrf_token%}
+                            <b>cuenta</b>
+                            <select name="banco" required="" class="form-control dropdown-toggle" id="id_banco">
+							  <option value="" selected="">---------</option>
+							  {% for c in cuenta%}
+							  <option value={{c.id}}>NO:"{{c.numero_de_cuenta}}" en "{{c.banco}}"</option>
+							  {%endfor%}
+							</select>
+
+
+
+
+							<b>usuario</b>
+
+                            <select name="usuario" required="" class="form-control dropdown-toggle" id="id_usuario">
+							  <option value="" selected="">---------</option>
+							  {% for u in usuarios%}
+							  <option value={{u.usuario.id}}>{{u.usuario}}</option>
+							  {% endfor%}
+							</select>
+
+                        
+                        </br> 
+                        <input type="submit" value="asignar" class="btn-primary col-lg-6 col-md-6 col-sm-12 col-xs-12 btn-lg">
+                        </form>
+                    
+                </div>
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+
+
+{%endblock%}
+
+{% block script %}
+
+
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+
+    
+{% endblock %}

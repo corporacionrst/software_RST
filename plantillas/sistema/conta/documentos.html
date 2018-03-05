@@ -1,0 +1,69 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}{{user.username}}{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/conta.html' %}
+{%endblock%}
+{%block encabezado%}Documentos para caja{%endblock%}
+{% block contenido %}
+    
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <div id="message"> 
+                </div>
+                <a>.</a>
+            </div>
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                	<div class="panel-body">
+                        <b>Tienda:</b>
+                        {{form.tienda}}{%csrf_token%}
+                        <b>usuario:</b>
+                        <select name="usuario" id="usuario" class="form-control dropdown-toggle" required="">
+                          <option></option>
+                        </select>
+                        <b>serie:</b>
+                        {{form.serie}}
+                        <b>documento:</b>
+                        {{form.documento}}
+                        </br>
+                        <input type="submit" value="asignar documento" class="btn-primary btn-lg pull-right" onclick="asignar_doc()">
+                		
+            		</div>
+        		</div>
+    		</div>
+		</div>
+	</div>	
+
+</div>
+{%endblock%}
+{% block script %}
+ <!-- jQuery -->
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="{%static 'bower_components/datatables/media/js/jquery.dataTables.min.js'%}"></script>
+    <script src="{%static 'bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js'%}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+    <script src="{%static 'propias/sistema/conta/documentos.js'%}"></script>
+
+   
+{% endblock %}
+
+
+
+
+
+

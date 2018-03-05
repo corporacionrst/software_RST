@@ -1,0 +1,477 @@
+{% extends 'website/base.html' %}
+{% load staticfiles %}
+{% block titulo %}"La experiencia..."{% endblock %}
+{% block contenido %}
+
+
+
+<section id="main-slider" class="no-margin">
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+
+                <div class="item active" style="background-image: url({%static 'images/slider/bg1.jpg'%})">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">
+</br></br></br></br>
+                                    </h1>
+                                    <h2 class="animation animated-item-2"></h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Hecha un vistazo</a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="{%static 'images/slider/img2.png'%}" class="img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url({%static 'images/slider/bg2.jpg'%})">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1"></br></br></br></h1>
+                                    <h2 class="animation animated-item-2"></br></h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Productos automotrices</a>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="{%static 'images/slider/img1.png'%}" class="img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url({%static 'images/slider/bg3.jpg'%})">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1"></br></br></br></h1>
+                                    <h2 class="animation animated-item-2"></br></h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">enterate de mas</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="{%static 'images/slider/img3.png'%}" class="img-responsive">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.item-->
+            </div><!--/.carousel-inner-->
+        </div><!--/.carousel-->
+        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="fa fa-chevron-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="fa fa-chevron-right"></i>
+        </a>
+    </section><!--/#main-slider-->
+
+
+
+<!-- 
+
+    <section id="main-slider" class="no-margin">
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+            	{% for obj in objeto %}
+            	<li data-target="#main-slider" data-slide-to="{{obj.pk}}" class="{% if forloop.first %}active{% endif %}" ></li>
+				{% endfor %}
+            </ol>
+
+            <div class="carousel-inner">
+            	{% for obj in objeto %}
+				<div class="item{% if forloop.first %} active{% endif %}" style="background-image: url( {%if obj.fondo%}{{obj.fondo.url}}{%else%}{%static 'images/slider/bg1.jpg'%}{%endif%}  )">
+
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">"{{obj.titulo}}"</h1>
+                                    <h2 class="animation animated-item-2">{{obj.contenido}}</h2>
+
+                                    <a class="btn-slide animation animated-item-3" href="{{obj.url_absoluta}}">ver</a>
+                                </div>
+                            </div>
+                            {% if obj.imagen %}
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    {%if not obj.imagen%}
+                                    <img src="{% static 'images/slider/img1.png'%}" class="img-responsive">
+                                    {% else %}
+                                    <img src="{{obj.imagen.url}}" class="img-responsive">
+                                    {%endif%}
+                                </div>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        .carousel-->
+<!-- 
+        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="fa fa-chevron-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="fa fa-chevron-right"></i>
+        </a>
+    </section>/#main-slider-->
+
+
+
+
+
+
+
+
+    <section id="feature" >
+        <div class="container">
+           <div class="center wow fadeInDown">
+                <h2>Nuestros Valores</h2>
+                <p class="lead">Estos son nuestros valores principales:</p>
+            </div>
+
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-bullhorn"></i>
+                            <h2>Responsabilidad</h2>
+                            <h3>Programa tus servicios, y recibelos en la fecha establecida</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-comments"></i>
+                            <h2>Servicio</h2>
+                            <h3>Asesoria t&eacute;ncica garantizada por parte de nuestros expertos</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-6 col-sm-12 col-lg-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-cogs"></i>
+                            <h2>Trabajo en equipo</h2>
+                            <h3>El mejor personal altamente capacitado para atenderle</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                
+                    <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-users"></i>
+                            <h2>Seriedad</h2>
+                            <h3>Acciones, no palabras</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-battery-full"></i>
+                            <h2>Actit&uacute;d</h2>
+                            <h3>Listos para servirle </h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+
+                    <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="feature-wrap">
+                            <i class="fa fa-heart"></i>
+                            <h2>"La experiencia hace la diferencia"</h2>
+                            <h3>Corporacion RST S.A</h3>
+                        </div>
+                    </div><!--/.col-md-4-->
+                </div><!--/.services-->
+            </div><!--/.row-->    
+        </div><!--/.container-->
+    </section><!--/#feature-->
+
+
+
+
+
+    <section id="services" class="service-item">
+	   <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Nuestros productos</h2>
+                <p class="lead">L&iacute;deres en la industria, con productos especiales y soluciones para sus problemas con nuestros productos</p>
+            </div>
+
+            <div class="row">
+
+              
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="{%static 'images/services/especial.png'%}">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Especiales</h3>
+                            <p>axiales, combinados, inoxidables </p>
+                        </div>
+                    </div>
+                </div>     
+
+
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="{%static 'images/services/sprocket.png'%}">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Sprockets y cadenas</h3>
+                            <p>sencillos, dobles o triples, de hierro o inoxidables</p>
+                        </div>
+                    </div>
+                </div>  
+
+
+
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="{%static 'images/services/polea.png'%}">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Poleas y fajas</h3>
+                            <p>una o mas correderas, llenas o perforadas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="{%static 'images/services/cojinete.png'%}">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Cojinetes</h3>
+                            <p>De bolas, rodillos, taza y cono, autoalineables, agujas, axiales de bolas y agujas</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="{%static 'images/services/chumacera.png'%}">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Chumaceras</h3>
+                            <p>De banco, pared, hierro colado, inoxidables, termoplasticas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="{%static 'images/services/retenedor.png'%}">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Retenedores</h3>
+                            <p>metalicos o recubiertos de hule</p>
+                        </div>
+                    </div>
+                </div>
+
+                                                           
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+
+
+    <section id="recent-works">
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Algunos ejemplos</h2>
+                <p class="lead">Productos para satisfacer el area industrial y automotriz</p>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/agro/agroi.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Agroindustria</a> </h3>
+                                <p>Rodamientos para tractores, rastras, camiones ...</p>
+                                <a class="preview" href="{% static 'images/indus/agro/agroi.jpg'%}" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+
+
+ 
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/auto/autos.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Automotriz</a></h3>
+                                <p>Rodamientos como Bufas, cojinetes, tensores...</p>
+                                <a class="preview" href="{% static 'images/indus/auto/autos.jpg'%}" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/tex/txt.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Textiles</a></h3>
+                                <p>Fajas y rodamientos para maquinaria textilera...</p>
+                                <a class="preview" href="{% static 'images/indus/tex/txt.jpg'%}" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/fud.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Alimenticia</a></h3>
+                                <p>Rodamientos para panificadoras, ingenios, plantas avicolas ...</p>
+                                <a class="preview" href="{% static 'images/indus/fud.jpg'%}" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/indus.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Industrial</a></h3>
+                                <p>Rodamientos para </p>
+                                <a class="preview" href="{% static 'images/indus/indus.jpg'%}" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/envase/base.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Plasticos</a></h3>
+                                <p>Rodamimentos para enbotelladoras, enplasticadoras, maquinaria transportadora...</p>
+                                <a class="preview" href="images/indus/envase/base.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+               
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/lab.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Laboratorios</a></h3>
+                                <p>Rodamientos miniatura, alta presicion, inoxidables...</p>
+                                <a class="preview" href="{% static 'images/indus/lab.jpg'%}" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="{% static 'images/indus/edu.jpg'%}" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">Educativa</a></h3>
+                                <p>Rodamientos autolineales, agujas, axiales, combinados y mass</p>
+                                <a class="preview" href="{% static 'images/indus/edu.jpg'%}" rel="prettyPhoto"><i class="fa fa-eye"></i>Ver</a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#recent-works-->
+
+
+
+
+    <section id="partner">
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Marcas</h2>
+                <p class="lead">Importadores de productos de alta calidad, al mejor precio</p>
+            </div>    
+
+            <div class="partners">
+                <ul>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="{%static 'images/partners/FAG.png'%}"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="{%static 'images/partners/NSK.png'%}"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="{%static 'images/partners/TL.png'%}"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="{%static 'images/partners/REX.png'%}"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="{%static 'images/partners/PM.png'%}"></a></li>
+                </ul>
+            </div>        
+        </div><!--/.container-->
+    </section><!--/#partner-->
+
+    <section id="conatcat-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="pull-left">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="media-body">
+                            <h2>Para consultas, productos y precios</h2>
+                            <p>Siguenos en nuestras redes sociales, o llamanos a nuestro PBX:2208-1414, ponte en contacto con nosotros, te esperamos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.container-->    
+    </section><!--/#conatcat-info-->
+
+	
+{% endblock %}

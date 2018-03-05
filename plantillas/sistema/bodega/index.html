@@ -1,0 +1,133 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}{{user.username}}{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/bodega.html' %}
+{%endblock%}
+{%block encabezado%}Bienvenid@ {{user.username}}{%endblock%}
+{% block contenido %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {% for message in messages %}
+                    <li{%if not message.tags%} class="{{message.tags}}"{%endif%}>{{message}}</li>
+                {% endfor %}
+            </div>
+
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <div class="row">
+    <a href="/bodega/productos/facturas/">
+        <div class="col-lg-6 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-book fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{despacho}}</div>
+                            <div>despachos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span class="pull-left">despachar pedidos</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="/bodega/envios/">
+        <div class="col-lg-6 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-paper-plane-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{envios}}</div>
+                            <div>Envios en cola</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Envios en cola</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </a>
+
+
+
+    <a href="/bodega/traslados">
+        <div class="col-lg-6 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-reply-all fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">999</div>
+                            <div>traslados</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver traslados</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </a>
+
+    <a href="/inventario">
+        <div class="col-lg-6 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-bars fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">ver</div>
+                            <div>inventario</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">Ver inventario</span>
+                        <span class="pull-right"><i class="fa fa-external-link"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+{%endblock%}
+{% block script %}
+ <!-- jQuery -->
+
+       {%include 'sistema/bodega/javascript/menu.html'%}
+    
+
+
+{% endblock %}
+

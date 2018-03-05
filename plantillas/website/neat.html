@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+<!-- METATARGET: refresh website
+    <meta http-equiv="refresh" content="5;URL={{metatarget}}" > -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block titulo %}{%endblock%}</title>
+    
+    <link rel="stylesheet" href="{%static 'css/personal.css'%}">
+    <!-- Social Buttons CSS -->
+    <link href="{%static 'bower_components/bootstrap-social/bootstrap-social.css'%}" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="{%static 'bower_components/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="{%static 'bower_components/metisMenu/dist/metisMenu.min.css'%}" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="{%static 'dist/css/timeline.css'%}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{%static 'dist/css/sb-admin-2.css'%}" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="{%static 'bower_components/morrisjs/morris.css'%}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{%static 'bower_components/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- <div id="wrapper">
+        <div id="page-wrapper">
+         -->
+
+{% block contenido %}
+{% endblock %}
+    <!--     </div>
+        /#page-wrapper
+    </div>
+     -->{% block script %}{% endblock %}
+    
+</body>
+</html>

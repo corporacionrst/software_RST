@@ -1,0 +1,126 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}{{user.username}}{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/conta.html' %}
+{%endblock%}
+{%block encabezado%}Bienvenid@ {{user.username}}{%endblock%}
+{% block contenido %}
+    
+<div class="row">
+    <a href="/conta/bancos">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-university fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">26</div>
+                            <div>Bancos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span class="pull-left">ver Bancos</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="/conta/notas">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-files-o fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">12</div>
+                            <div>notas de credito-debito</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span class="pull-left">Ver notas</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>    
+    </a>
+    <a href="/conta/repor">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-book  fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">124</div>
+                            <div>Reportes</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span class="pull-left">Ver reportes</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="/conta/documentos">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-bookmark fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">2</div>
+                            <div>Documentos </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <span class="pull-left">ir</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+{%endblock%}
+{% block script %}
+ <!-- jQuery -->
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="{%static 'bower_components/datatables/media/js/jquery.dataTables.min.js'%}"></script>
+    <script src="{%static 'bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js'%}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+   
+{% endblock %}
+
+
+
+
+
+

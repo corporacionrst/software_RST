@@ -1,0 +1,68 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}marca{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/bodega.html' %}
+{%endblock%}
+{%block encabezado%}trasladar a "{{tienda}}"" 
+{%endblock%}
+{% block contenido %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="recuperar">recuperar un traslado</a>
+                <div class ="pull-right"><a href="generar">ver traslados </a></div>
+            </div>
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    tienda a solicitar:
+                            <select name="tienda_solicitante" required="" class="form-control dropdown-toggle" id="id_tienda" onchange="check(this);">
+                                <option value="" selected="">---------</option>
+                                {%for t in empresa%}
+                                 <option value={{t.id}}>{{t.nombre}}</option>
+                                {%endfor%}
+                            </select>.
+</b>
+
+{% include 'productos/inventario/carga_inventario.html'%}
+                        </br>
+                        <input id="solicitar_tr" type="submit" value="Solicitar traslado" class="btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-lg">
+                       
+                <input type="text" id="info" disabled  >
+                    
+                </div>
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+
+
+{%endblock%}
+
+{% block script %}
+<script> var tienda={{id_tienda}}</script>
+
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+    <script src="{%static 'propias/productos/traslados/generar.js'%}"></script>
+
+    
+{% endblock %}

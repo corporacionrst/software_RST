@@ -1,0 +1,34 @@
+
+{%load staticfiles%}
+<script> var page_id="{{pagina}}";</script>
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+    <script src="{%static 'propias/inventario/clientes/check_cliente.js' %}"></script>
+
+   <script src="{%static 'propias/cliente_proveedor/cliente.js' %}"></script>
+
+
+<script src="{% static 'propias/facturacion/cargar_lista.js'%}">
+</script>
+
+
+<script src="{% static 'propias/inventario/ventas.js'%}">
+</script>
+<script>
+	
+$(document).ready(function(){
+	if("{{mensaje}}".includes("lista")){
+		alert("{{mensaje}}");
+	}
+});
+</script>

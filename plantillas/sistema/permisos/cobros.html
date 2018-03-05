@@ -1,0 +1,24 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}Proformas{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+
+    {% include 'sistema/navbars/cobros.html' %}
+
+{%endblock%}
+{%block encabezado%}Permisos
+{%endblock%}
+{% block contenido %}
+
+	{% include 'sistema/permisos/index.html'%}
+
+
+{%endblock%}
+
+{% block script %}
+	{% include 'sistema/permisos/prjs.html'%}
+
+
+
+    
+{% endblock %}

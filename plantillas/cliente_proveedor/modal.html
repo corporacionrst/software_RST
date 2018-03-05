@@ -1,0 +1,53 @@
+
+<!-- The Modal -->
+<form method='POST' id="proveedorForm" action='' enctype="multipart/form-data">
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>{{accion}}</h2>
+    </div>
+    <div class="modal-body">{%csrf_token%}
+      <p class="col-lg-4">nit{{formulario.nit_a_registrar}}</p>
+      <p class="col-lg-8">nombre{{formulario.nombre_a_registrar}}</p>
+     <p class="col-lg-1">ciudad?{{formulario.credito_a_registrar}}</p>
+      <p class="col-lg-11">direccion:{{formulario.direccion_a_registrar}}</p>
+      <p  class="col-lg-6">telefono{{formulario.telefono_a_registrar}}</p>
+      <p class="col-lg-6">
+        correo{{formulario.correo_a_registrar}}
+      </p>
+      <p >comentario{{formulario.comentario}}</p>
+
+
+<div id="myDIV" style="visibility: hidden;"> 
+      {{formulario.es_set}}
+      <label for="id_es_set">credito</label>
+        <div class="id_es_set">
+          <div class="panel-body">  
+            <div class="col-lg-4">dias:{{formulario.dias_de_credito_a_registrar}}</div>
+            <div class="col-lg-8">monto:{{formulario.monto_a_registrar}}</div>
+              
+          </div>
+        </div>
+
+</div>
+
+{% if request.user.is_staff%}
+<script>
+  var x = document.getElementById('myDIV');
+  if (x.style.visibility === 'hidden') {
+      x.style.visibility = 'visible';
+  }
+</script>
+{%endif%}
+
+
+    </div>
+    <div class="modal-footer">
+      <h3><input type="submit" class ="btn-success btn-lg" name='crear' value="guardar"/></h3>
+    </div>
+  </div>
+</form>
+</div>

@@ -1,0 +1,21 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}ordenes{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/cobros.html' %}
+{%endblock%}
+{%block encabezado%}Ordenes en "{{tienda}}"
+{%endblock%}
+{% block contenido %}
+
+
+{%include 'productos/orden/menu/menu_oc.html'%}
+
+
+{%endblock%}
+
+{% block script %}
+    
+{%include 'productos/orden/orden_menu_script.html'%}
+   
+{% endblock %}

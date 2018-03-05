@@ -1,0 +1,88 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}marca{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/bodega.html' %}
+{%endblock%}
+{%block encabezado%}Listado de marcas 
+<div id="result"></div>{%endblock%}
+{% block contenido %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                marca
+                {% for message in messages %}
+                    <li{%if not message.tags%} class="{{message.tags}}"{%endif%}>{{message}}</li>
+                {% endfor %}<div class ="pull-right"><a href="crear">crear marca</a></div>
+            </div>
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                	<table class="table">
+                		<thead>
+                			<th>marca</th>
+                			<th>importacion</th>
+                		</thead>
+                		<tbody>
+                			{%for t in tabla%}
+                				<tr><td>{{t.nombre}}</td><td>{%if t.importacion is False%}Si{%else%}NO{%endif%}</td></tr>
+                			{%endfor%}
+                		</tbody>
+                	</table>
+
+                    
+                </div>
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+{%endblock%}
+
+{% block script %}
+  <script>
+  var socket = io("wss://localhost:3000");
+
+  socket.on('result',function(csv){
+    var result = document.getElementById('result');
+    var aTag = document.createElement('a');
+    aTag.setAttribute('href',csv);
+    aTag.setAttribute('target','_blank');
+    aTag.innerHTML= 'descargar';
+    result.appendChild(aTag);
+  });
+  var submit = $('input[type=submit]');
+  submit.on('click',function(event){
+    $.ajax({
+        type:'post',
+        url:"/productos/marca/crearm/",
+        data:$('form').serialize(),
+        success:function(celeryTaskId){
+            socket.emit('suscribe',celeryTaskId);
+        }
+    });
+    event.preventDefault();
+
+  });
+
+
+  </script>
+ <!-- jQuery -->
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+    
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+   
+{% endblock %}

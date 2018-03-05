@@ -1,0 +1,80 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}asignar{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+        {% include 'sistema/navbars/cobros.html' %} 
+{%endblock%}
+{%block encabezado%}Depositos en {{tienda}}
+{%endblock%}
+{% block contenido %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                .<a href="confirmar/" class="pull-right">confirmar depositos</a>
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+
+                        <form method='POST' action='' enctype='multipart/form-data' id='taskform'>
+                            {%csrf_token%}
+                            <b>cuenta a debitar</b>
+                            <select name="de" required="" class="form-control dropdown-toggle" id="id_de">
+							  <option value="" selected="">---------</option>
+							  {% for c in de%}
+							  <option value={{c.id}}>No:"{{c.numero_de_cuenta}}" en "{{c.banco}}" (monto:Q{{c.capital}})</option>
+							  {%endfor%}
+							</select>
+
+
+        
+
+							<b>cuenta a transferir</b>
+
+                            <select name="para" required="" class="form-control dropdown-toggle" id="id_para">
+							  <option value="" selected="">---------</option>
+							  {% for u in para%}
+							  <option value={{u.id}}>No: "{{u.numero_de_cuenta}}" en "{{u.banco}}" ({{u.administra}})</option>
+							  {% endfor%}
+							</select>
+							<b>monto</b>
+							<input type="text" class="form-control" placeholder="monto a transferir" onkeypress="return event.charCode>=48 && event.charCode<=57 || event.charCode==46" id="monto">
+                            <b>documento</b>(opcional)
+                            <input type="text" class="form-control" placeholder="documento o boleta" id="documento">
+
+                        
+                        </br> 
+                        <input type="submit" value="asignar" class="btn-primary col-lg-6 col-md-6 col-sm-12 col-xs-12 btn-lg" id="asignar_deposito">
+                        </form>
+                </div>
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+
+
+{%endblock%}
+
+{% block script %}
+
+
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+   
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+      <script src="{%static 'propias/bancos/depositos.js' %}"></script>
+
+    
+{% endblock %}

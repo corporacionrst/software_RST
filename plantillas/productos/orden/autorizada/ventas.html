@@ -1,0 +1,21 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}ordenes{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/ventas.html' %}
+{%endblock%}
+{%block encabezado%}Autorizadas en "{{tienda}}"
+{%endblock%}
+{% block contenido %}
+
+
+
+{%include 'productos/orden/autorizada/lista.html'%}
+
+{%endblock%}
+
+{% block script %}
+    
+{%include 'productos/orden/autorizada/script.html'%}
+   
+{% endblock %}

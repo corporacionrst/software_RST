@@ -1,0 +1,21 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}{{user.username}}{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/bodega.html' %}
+{%endblock%}
+{%block encabezado%}Facturar en "{{tienda}}"{%endblock%}
+{% block contenido %}
+
+{% include 'facturacion/menu/documento.html'%}
+
+{%endblock%}
+{% block script %}
+ <!-- jQuery -->
+
+       {%include 'sistema/bodega/javascript/menu.html'%}
+    
+
+
+{% endblock %}
+

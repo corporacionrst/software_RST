@@ -1,0 +1,23 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}Proformas{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+
+    {% include 'sistema/navbars/bodega.html' %}
+
+{%endblock%}
+{%block encabezado%}Proformas en {{tienda}}
+{%endblock%}
+{% block contenido %}
+
+	{% include 'productos/proforma/imprimir/index.html'%}
+
+
+{%endblock%}
+
+{% block script %}
+{% include 'productos/proforma/imprimir/prjs.html'%} 
+
+
+    
+{% endblock %}

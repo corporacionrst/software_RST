@@ -1,0 +1,46 @@
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <div id="message"> 
+                </div>
+                <a href="/productos/crear/">crear producto</a><div class ="pull-right"><a href="/productos/inventario">inventario</a></div>
+            </div>
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                	<div class="panel-body">
+                        <div class="dataTable_wrapper">
+                            {%csrf_token%}
+                           
+                    		<div class="col-lg-4">
+                    			nit:{{form.nit}}
+                    		</div>
+                    		<div class="col-lg-7">
+                    			nombre:{{form.nombre}}
+                    		</div>
+                    		<div class="col-lg-1">
+                    			credito:{{form.credito}}
+                    		</div>
+        <input type="text" value="{{store}}" id="tienda" hidden>
+                            <div class="col-lg-12">
+                                <div id="tabla_pr"></div>
+                            </div>
+                            <div id="table_proveedor"></div>
+                    		<div class="col-lg-12">
+                    			direccion:{{form.direccion}}
+                    		</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">.
+                            <button class="btn-primary btn-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" onclick="registrar_venta()">{{accion}}</button></div>
+                    		<div class="col-lg-12">lista</div>
+                            {% include 'productos/inventario/carga_inventario.html'%}
+                        </div>
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>

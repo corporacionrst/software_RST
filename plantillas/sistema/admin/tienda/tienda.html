@@ -1,0 +1,55 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}{{user.username}}{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+    {% include 'sistema/navbars/bodega.html' %}
+{%endblock%}
+{%block encabezado%}Tienda{%endblock%}
+{% block contenido %}
+{%if request.user.is_superuser%}
+<div class="col-lg-12 col-md-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="row">
+            	<h3>REGISTRAR</h3></br>
+                {%csrf_token%}
+                {{form.as_p}}
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="pull-left"></span>
+            <span class="pull-right">
+                <button class="btn-info btn-lg" onclick="registrar()">registrar tienda</button>
+            </span>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+{%endif%}
+<div class="col-lg-12 col-md-12">
+    <div class="panel panel-red">
+        <div class="panel-heading">
+            <div class="row">
+            	<h3>cambiar de tienda</h3>
+            	{%csrf_token%}
+            	seleccionar tienda:{{tienda.tienda}}
+            	<br/>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <span class="pull-left"></span>
+            <span class="pull-right">
+                <button id="cambiar" class="btn-warning btn-lg" onclick="refactorizar()">cambiar de tienda</button></span>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
+{% block script %}
+ <!-- jQuery -->
+       {%include 'sistema/bodega/javascript/menu.html'%}
+
+    <script src="{% static 'propias/sistema/tienda/tienda.js' %}"></script>
+{% endblock %}
+

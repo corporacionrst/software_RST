@@ -1,0 +1,70 @@
+{%extends 'sistema/base.html'%}
+{%block titulo%}crear bancos{%endblock%}
+{% load staticfiles %}
+{%block wrapper%}
+        {% include 'sistema/navbars/admin.html' %} 
+{%endblock%}
+{%block encabezado%}Crea banco 
+{%endblock%}
+{% block contenido %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                banco<div class ="pull-right">{% for message in messages %}
+                    <li{%if not message.tags%} class="{{message.tags}}"{%endif%}>{{message}}</li>
+                {% endfor %}</div>
+            </div>
+               
+                
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+
+                        <form method='POST' action='' enctype='multipart/form-data' id='taskform'>
+                            {%csrf_token%}nombre:{{form.banco}}
+                        </br>  
+                        </br> 
+                        <input type="submit" value="Guardar" class="btn-primary col-lg-6 col-md-6 col-sm-12 col-xs-12 btn-lg">
+                        </form>
+                    
+                </div>
+
+            </div>
+        <!-- /.panel -->
+        </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+
+
+
+{%endblock%}
+
+{% block script %}
+
+
+    <script src="{%static 'bower_components/jquery/dist/jquery.min.js'%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{%static 'bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{%static 'bower_components/metisMenu/dist/metisMenu.min.js'%}"></script>
+
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="{%static 'dist/js/sb-admin-2.js'%}"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+<script src="{% static 'propias/productos/marcas/marca.js'%}">
+</script>
+
+
+    <!-- websockets -->
+     
+
+    
+{% endblock %}
