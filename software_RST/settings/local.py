@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('KEEP_THE_SECRET_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv("MY_HOST")]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -145,7 +145,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME':os.getenv("DB_RST_NAME"),
         'USER':os.getenv("DB_RST_USER"),
-        'PASSWORD':os.getenv("DB_RST_PASSWORD"),
+        'PASSWORD':"rstC3ntr4!12_2208-1414$z0n4-12",
         'HOST':os.getenv("DB_RST_HOST"),
         'PORT':os.getenv("DB_RST_PORT"),
     }
@@ -204,14 +204,14 @@ USE_TZ = True
 
 
 
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME =os.getenv("AWS_STORAGE_BUCKET_NAME")
+AWS_ACCESS_KEY_ID = 'AKIAIKDSL3JB2BMOQGJA'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME ='corporacion-statics'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' 
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
-AWS_LOCATION = os.getenv("AWS_LOCATION")
+AWS_LOCATION='static'
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"estatico"),
