@@ -145,7 +145,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME':os.getenv("DB_RST_NAME"),
         'USER':os.getenv("DB_RST_USER"),
-        'PASSWORD':"rstC3ntr4!12_2208-1414$z0n4-12",
+        'PASSWORD':os.getenv("DB_RST_PASSWORD"),
         'HOST':os.getenv("DB_RST_HOST"),
         'PORT':os.getenv("DB_RST_PORT"),
     }
@@ -203,22 +203,14 @@ USE_TZ = True
 # ------------------------------------------------------------------
 
 
-
-AWS_ACCESS_KEY_ID = 'AKIAIKDSL3JB2BMOQGJA'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME ='corporacion-statics'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' 
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION='static'
+STATIC_URL = '/estatico/'
+STATIC_ROOT =os.path.join(os.path.dirname(BASE_DIR),"contenido_estatico")
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"estatico"),
 ]
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 
 
 # ------------------------------------------------------------------
